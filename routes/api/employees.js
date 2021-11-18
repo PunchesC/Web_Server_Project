@@ -1,38 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const data = {};
-data.employees = require('../../data/employees.json');
+const employeeController = require('../../controllers/employeesController')
 
 router.route('/')
-    .get((req, res)=>{
-      res.json(data.employees)
-    })
+    .get(employeeController.getAllEmployees)
   // post gets paramaters coming in. post introduce new employee
-  .post((req,res) => {
-    res.json({
-      "firstname": req.body.firstname,
-      "lastname" : req.body.lastname
-    });
-
-  })
+  .post(employeeController.createNewEmployee)
   // updating an employee different for real api
-  .put((req,res) =>{
-    res.json({
-      "firstname": req.body.firstname,
-      "lastname" : req.body.lastname
-    });
-  })
+  .put(employeeController.updateEmployee)
   // delete
-  .delete((req,res)=>{
-    res.json({
-      "id": req.body.id
-    });
-  });
+  .delete(employeeController.deleteEmployee);
 // paramater from inside the URL
 router.route('/:id')
-  .get((req, res)=>{
-    res.json({"id": req.params.id});
-  });
+  .get(employeeController.getEmployee);
 
 
 module.exports = router;

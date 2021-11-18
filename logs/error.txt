@@ -1,3 +1,9 @@
 20211117	16:51:34	9cd419a8-e585-4ad2-9bc2-509fe0f7a1bf	Error:Not allowed by CORS
 20211117	16:52:28	ec16b29c-5e84-44cc-a048-a25d192a06f2	Error:Not allowed by CORS
 20211117	16:54:05	66738f4a-7b51-4876-baed-be9052d42d59	Error:Not allowed by CORS
+20211118	08:55:57	d3b9502b-5f60-40ee-a33f-776d4dd0efb5	Error:ENOENT: no such file or directory, stat 'C:\Users\curtis\Documents\Projects\webserverproject\views\subdir\text.html'
+20211118	08:56:25	1137abec-6a34-4eee-8317-4cd36c62ce98	Error:ENOENT: no such file or directory, stat 'C:\Users\curtis\Documents\Projects\webserverproject\views\subdir\text.html'
+20211118	08:56:26	d1b00dec-1d01-48c2-8678-30d5c0ff79d6	Error:ENOENT: no such file or directory, stat 'C:\Users\curtis\Documents\Projects\webserverproject\views\subdir\text.html'
+20211118	08:56:30	b5ef76c1-20ab-476c-a8c4-ea2a0c93cf86	Error:ENOENT: no such file or directory, stat 'C:\Users\curtis\Documents\Projects\webserverproject\views\subdir\text.html'
+20211118	08:56:46	365f86e3-e544-4205-915f-8d1b0ab52f64	Error:ENOENT: no such file or directory, stat 'C:\Users\curtis\Documents\Projects\webserverproject\views\subdir\text.html'
+20211118	09:06:23	147454a3-070d-4009-8cc6-c54e8434ef6f	Error:ENOENT: no such file or directory, stat 'C:\Users\curtis\Documents\Projects\webserverproject\routes\views\index.html'

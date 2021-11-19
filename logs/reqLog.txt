@@ -103,3 +103,10 @@
 20211118	14:55:39	8986f91b-5b02-459c-80f2-879deb8aae3f	DELETE	undefined	/employee
 20211118	14:55:46	241478d1-565d-4662-acfd-d5a7937f3c46	DELETE	undefined	/employees
 20211118	14:56:07	0d1c7753-d78a-42e8-8dc4-168d9b2cea7a	GET	undefined	/employees/1
+20211118	18:45:42	d074615e-4e00-42ca-a170-40494a222c3c	GET	undefined	/
+20211118	18:45:42	95c1859b-37df-4f1d-8a44-16241e513318	GET	undefined	/css/style.css
+20211118	18:49:01	e81617eb-edd1-4d49-b41b-60d967439e0b	POST	undefined	/register
+20211118	18:49:55	5a7b567e-a755-432d-979b-24ca34db4366	POST	undefined	/register
+20211118	19:02:44	0fd33f1a-eaca-421e-a2cf-4207a09c6342	POST	undefined	/auth
+20211118	19:02:53	a2b8a66d-6b76-49d9-b6b4-f68bb5aa91a1	POST	undefined	/auth
+20211118	19:04:41	331aa698-d711-4dcd-950a-1c62f8d3099b	POST	undefined	/register

@@ -31,8 +31,35 @@ app.use(express.static(path.join(__dirname, '/public')));
 // routes
 app.use('/', require('./routes/root'));
 
+app.use('/register', require('./routes/register'));
+
+app.use('/auth', require('./routes/auth'));
+
 
 app.use('/employees', require('./routes/api/employees'));
+
+// catch-all its a waterfall of progression (put at end)
+// 404 personal default page
+// app.all
+app.all('*',(req,res)=>{
+  res.status(404)
+  if(req.accepts('html')){
+    res.sendFile(path.join(__dirname, 'views', '404.html'));
+  } else if (req.accepts('json')) {
+    res.json({error: "404 Not Found"})
+  } else {
+    res.type('txt').send("404 Not Found");
+  }
+  
+
+});
+
+
+// custom error handler
+
+app.use(errorHandler);
+
+app.listen(PORT, ()=> console.log(`Server running on port ${PORT}`));
 
 // // ^ === begins with
 // // $ === ends with
@@ -84,27 +111,3 @@ app.use('/employees', require('./routes/api/employees'));
 
 // // [] calling all functions
 // app.get('/chain(.html)?', [one, two,three]);
-
-
-// catch-all its a waterfall of progression (put at end)
-// 404 personal default page
-// app.all
-app.all('*',(req,res)=>{
-  res.status(404)
-  if(req.accepts('html')){
-    res.sendFile(path.join(__dirname, 'views', '404.html'));
-  } else if (req.accepts('json')) {
-    res.json({error: "404 Not Found"})
-  } else {
-    res.type('txt').send("404 Not Found");
-  }
-  
-
-});
-
-
-// custom error handler
-
-app.use(errorHandler);
-
-app.listen(PORT, ()=> console.log(`Server running on port ${PORT}`));

@@ -5,11 +5,19 @@ const cors = require('cors');
 const corsOptions = require('./config/corsOptions')
 const {logger} = require('./middleware/logEvents');
 const errorHandler = require('./middleware/errorHandler');
+const verifyJWT = require('./middleware/verifyJWT');
+const cookieParser = require('cookie-parser');
+const credentials = require('./middleware/credentials')
 const { ca } = require('date-fns/locale');
 const PORT = process.env.PORT || 3500;
 
 // custom middleware logger
 app.use(logger);
+
+// Handle options credentials check = before CORS!
+// and fetch cookies credentials requirement
+// Use before CORS
+app.use(credentials);
 
 // Cross Origin Resource Sharing
 app.use(cors(corsOptions));
@@ -23,6 +31,9 @@ app.use(express.urlencoded({extended:false}));
 // built-in middleware for json
 app.use(express.json());
 
+// middleware for cookies
+app.use(cookieParser());
+
 // serve static files
 app.use(express.static(path.join(__dirname, '/public')));
 
@@ -35,7 +46,15 @@ app.use('/register', require('./routes/register'));
 
 app.use('/auth', require('./routes/auth'));
 
+// Refresh should go before verify JWT
+app.use('/refresh', require('./routes/refresh'));
 
+app.use('/logout', require('./routes/logout'));
+
+
+// Only good spot for JWTverify since other need access to the root, being able to register, and even to authorization.
+// Remember works like a waterfall
+app.use(verifyJWT);
 app.use('/employees', require('./routes/api/employees'));
 
 // catch-all its a waterfall of progression (put at end)

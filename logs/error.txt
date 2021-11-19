@@ -7,3 +7,14 @@
 20211118	08:56:30	b5ef76c1-20ab-476c-a8c4-ea2a0c93cf86	Error:ENOENT: no such file or directory, stat 'C:\Users\curtis\Documents\Projects\webserverproject\views\subdir\text.html'
 20211118	08:56:46	365f86e3-e544-4205-915f-8d1b0ab52f64	Error:ENOENT: no such file or directory, stat 'C:\Users\curtis\Documents\Projects\webserverproject\views\subdir\text.html'
 20211118	09:06:23	147454a3-070d-4009-8cc6-c54e8434ef6f	Error:ENOENT: no such file or directory, stat 'C:\Users\curtis\Documents\Projects\webserverproject\routes\views\index.html'
+20211119	09:53:08	6547cf4f-0dae-40da-84f6-de109f6cf2dd	SyntaxError:Unexpected token e in JSON at position 0
+20211119	09:53:28	b6e33761-38b1-4818-860e-1632bd46a12c	SyntaxError:Unexpected token e in JSON at position 0
+20211119	09:54:40	3f37435a-ef41-4d64-8fab-0bbfb9d7c770	SyntaxError:Unexpected token e in JSON at position 0
+20211119	10:01:35	15300609-df7f-4366-b942-7283139208b9	SyntaxError:Unexpected token e in JSON at position 0
+20211119	10:01:54	f22a4d96-2df5-4cc3-8c1b-26f477f795c2	SyntaxError:Unexpected token e in JSON at position 0
+20211119	10:31:07	5e18a0e7-e810-4528-82a8-4fd1305f0e21	Error:"expires" is not allowed in "options"
+20211119	10:31:26	eb0cb72f-42c8-4fca-a4e1-ddad3f1adc2e	Error:"expires" is not allowed in "options"
+20211119	14:59:21	da52ff74-dd2f-40ee-80f4-a86d0e732d25	ReferenceError:role is not defined
+20211119	15:02:33	5e6d685c-c5f1-4433-97db-0734cb666675	ReferenceError:role is not defined
+20211119	15:05:09	58748308-18ee-45c0-8209-503b9092349c	ReferenceError:role is not defined
+20211119	15:07:25	08463b69-58cc-4f09-a633-87e654a93b99	ReferenceError:role is not defined

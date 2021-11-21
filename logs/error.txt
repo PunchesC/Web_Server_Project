@@ -18,3 +18,4 @@
 20211119	15:02:33	5e6d685c-c5f1-4433-97db-0734cb666675	ReferenceError:role is not defined
 20211119	15:05:09	58748308-18ee-45c0-8209-503b9092349c	ReferenceError:role is not defined
 20211119	15:07:25	08463b69-58cc-4f09-a633-87e654a93b99	ReferenceError:role is not defined
+20211121	09:48:49	8c773d6a-78b7-4a85-8258-b7fbb90374f6	SyntaxError:Unexpected token s in JSON at position 10

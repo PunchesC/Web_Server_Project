@@ -1,17 +1,11 @@
-const usersDB = {
-  users: require('../model/users.json'),
-  setUsers: function (data) {
-    this.users = data;
-  },
-};
-
+const User = require('../model/User');
 const bcrypt = require('bcrypt');
 
 const jwt = require('jsonwebtoken');
-require('dotenv').config();
-// fs is not connect to any databases yet, so just simple files
-const fsPromises = require('fs').promises;
-const path = require('path');
+
+// // fs is not connect to any databases yet, so just simple files
+// const fsPromises = require('fs').promises;
+// const path = require('path');
 
 const handleLogin = async (req, res) => {
   const { user, pwd } = req.body;
@@ -19,7 +13,7 @@ const handleLogin = async (req, res) => {
     return res
       .status(400)
       .json({ message: 'Username and password are required.' });
-  const foundUser = usersDB.users.find((person) => person.username === user);
+  const foundUser = await User.findOne({username: user}).exec();
   if (!foundUser) return res.sendStatus(401); // Unauthorized
   // evaluate password
   const match = await bcrypt.compare(pwd, foundUser.password);
@@ -46,23 +40,18 @@ const handleLogin = async (req, res) => {
 
     // Saving refreshToken with current user
     // creates an array of users not logged in users
-    const otherUsers = usersDB.users.filter(
-      (person) => person.username !== foundUser.username
-    );
-    const currentUser = { ...foundUser, refreshToken };
-    usersDB.setUsers([...otherUsers, currentUser]);
-    await fsPromises.writeFile(
-      path.join(__dirname, '..', 'model', 'users.json'),
-      JSON.stringify(usersDB.users)
-    );
+    foundUser.refreshToken = refreshToken;
+    const result = await foundUser.save();
+    console.log(result);
+  
     // sending accessToken in JSON can cause problems to frontend developers because it needs to be save.
     // set cookies to HTTP so its not accessable to Javascript. no 100% secure, but better
     res.cookie('jwt', refreshToken, {
       httpOnly: true,
       sameSite: 'None',
-      secure: true,
+   
       maxAge: 24 * 60 * 60 * 1000,
-    });
+    }); // secure:true in production cant test in thundercloud
     res.json({ accessToken });
   } else {
     res.sendStatus(401);
